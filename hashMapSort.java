@@ -4,6 +4,7 @@ import java.util.Comparator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 import java.util.Map.Entry;
 import java.util.stream.Collectors;
 
@@ -35,9 +36,25 @@ public class hashMapSort {
         });
 
         Map<Integer,book>afterSortedMap = new LinkedHashMap<>();
-        for (Entry<Integer,book> entry : list) {
+        for (Map.Entry<Integer,book> entry : list) {
             afterSortedMap.put(entry.getKey(), entry.getValue());
         }
         return afterSortedMap;
     }
+
+    public Map<Integer,book>sortByKey(Map<Integer,book> m){
+        Map<Integer,book> afterSortedMap = new TreeMap<>(new Comparator<Integer>() {
+
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return o2 - o1;
+            }
+            
+        });
+        for (Map.Entry<Integer,book> s : m.entrySet()) {
+            afterSortedMap.put(s.getKey(), s.getValue());   
+        }
+        return afterSortedMap;
+    }
+    
 }

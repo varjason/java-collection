@@ -13,7 +13,7 @@ public class hashMapStoringData{
     }
 }
 
-class book implements Comparable<book>{
+class book {
     private String name;
     private Double price;
     private String author;
@@ -42,11 +42,6 @@ class book implements Comparable<book>{
     @Override
     public String toString() {
         return "book name : " + name + ", book price : " + price + ", author : " + author +" \n" ;
-    }
-
-    @Override
-    public int compareTo(book o) {
-       return Double.compare(this.price, o.price) ;
     }
    
 }

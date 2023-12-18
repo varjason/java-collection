@@ -25,7 +25,7 @@ public class runHashMap {
 
         System.out.println(hms.sortByPrice(hmo.getAhashmap()));
         System.out.println(hms.sortByAuthor(hmo.getAhashmap()));
-
+        System.out.println(hms.sortByKey(hmo.getAhashmap()));
 
     }
 }
