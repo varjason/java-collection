@@ -1,5 +1,3 @@
-import java.util.Map;
-
 public class runHashMap {
     public static void main(String[] args) {
         hashMapOperation hmo = new hashMapOperation();
@@ -26,6 +24,8 @@ public class runHashMap {
         // System.out.println(hmo.getAhashmap().toString());
 
         System.out.println(hms.sortByPrice(hmo.getAhashmap()));
+        System.out.println(hms.sortByAuthor(hmo.getAhashmap()));
+
 
     }
 }

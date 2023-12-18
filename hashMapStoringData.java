@@ -35,6 +35,10 @@ class book implements Comparable<book>{
         return price;
     }
 
+    public String getAuthor() {
+        return author;
+    }
+
     @Override
     public String toString() {
         return "book name : " + name + ", book price : " + price + ", author : " + author +" \n" ;

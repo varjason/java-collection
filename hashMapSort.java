@@ -11,14 +11,8 @@ public class hashMapSort {
 
     public Map<Integer,book> sortByPrice(Map<Integer,book> m){
         List <Map.Entry<Integer,book>> list = new ArrayList<>(m.entrySet());
-        Collections.sort(list,new Comparator<Map.Entry<Integer,book>>() {
-
-            @Override
-            public int compare(Entry<Integer, book> o1, Entry<Integer, book> o2) {
-                return o1.getValue().getPrice().compareTo(o2.getValue().getPrice());
-            }
+        Collections.sort(list,(o1,o2)-> o1.getValue().getPrice().compareTo(o2.getValue().getPrice()));
             
-        });
         LinkedHashMap<Integer, book> afterSortedMap = list.stream()
         .collect(Collectors.toMap(
                 Map.Entry::getKey, 
@@ -28,4 +22,22 @@ public class hashMapSort {
         ));
         return afterSortedMap;
     } 
+
+    public Map<Integer,book>sortByAuthor(Map<Integer,book> m){
+        List<Map.Entry<Integer,book>> list = new ArrayList<>(m.entrySet());
+        Collections.sort(list, new Comparator<Map.Entry<Integer,book>>() {
+
+            @Override
+            public int compare(Entry<Integer, book> o1, Entry<Integer, book> o2) {
+                return o1.getValue().getAuthor().compareTo(o2.getValue().getAuthor());
+            }
+            
+        });
+
+        Map<Integer,book>afterSortedMap = new LinkedHashMap<>();
+        for (Entry<Integer,book> entry : list) {
+            afterSortedMap.put(entry.getKey(), entry.getValue());
+        }
+        return afterSortedMap;
+    }
 }
