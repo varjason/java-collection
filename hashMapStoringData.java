@@ -1,52 +1,33 @@
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
 
-public class collectionFrameworkDemo{
-    private static  Set  <book> aHashset = new HashSet<>();
-    private static  Map  <Integer,String> aHashmap = new HashMap<>();
-    private static  Map  <Integer,String> atreeMap = new TreeMap<>();
+public class hashMapStoringData{
+    private static  Map  <Integer,book> aHashmap = new HashMap<>();
 
-    public static Set<book> getAhashset() {
-        return aHashset;
-    }
-
-
-    public static Map<Integer, String> getAhashmap() {
+    public Map<Integer, book> getAhashmap() {
         return aHashmap;
     }
 
-
-    public static Map<Integer, String> getAtreemap() {
-        return atreeMap;
-    }
-
-    public void setaHashset(book value) {
-        aHashset.add(value);
-    }
-
-    public void setaHashmap(Integer num,String value){
+    public void addDataInToHashmap(Integer num,book value){
         aHashmap.put(num, value);
-    }
-
-    public void setaTreemap(Integer num,String value){
-        atreeMap.put(num, value);
     }
 }
 
 class book implements Comparable<book>{
     private String name;
     private Double price;
-    
-    public book(String string, Double valueOf) {
+    private String author;
+
+    public book(String string, double d,String author) {
+        this.name = string;
+        this.price = d;
+        this.author = author;
     }
 
     public String getName() {
         return name;
     }
-    public void setName(String name,Double price) {
+    public void setName(String name,Double price,String author) {
         this.name = name;
         this.price = price;
     }
@@ -56,7 +37,7 @@ class book implements Comparable<book>{
 
     @Override
     public String toString() {
-        return "book [name=" + name + ", price=" + price + "]";
+        return "book name : " + name + ", book price : " + price + ", author : " + author +" \n" ;
     }
 
     @Override
