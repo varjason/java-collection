@@ -10,11 +10,11 @@ import java.util.stream.Collectors;
 
 public class hashMapSort {
 
-    public Map<Integer,book> sortByPrice(Map<Integer,book> m){
-        List <Map.Entry<Integer,book>> list = new ArrayList<>(m.entrySet());
+    public Map<Integer,Book> sortByPrice(Map<Integer,Book> m){
+        List <Map.Entry<Integer,Book>> list = new ArrayList<>(m.entrySet());
         Collections.sort(list,(o1,o2)-> o1.getValue().getPrice().compareTo(o2.getValue().getPrice()));
             
-        LinkedHashMap<Integer, book> afterSortedMap = list.stream()
+        LinkedHashMap<Integer, Book> afterSortedMap = list.stream()
         .collect(Collectors.toMap(
                 Map.Entry::getKey, 
                 Map.Entry::getValue,
@@ -24,26 +24,26 @@ public class hashMapSort {
         return afterSortedMap;
     } 
 
-    public Map<Integer,book>sortByAuthor(Map<Integer,book> m){
-        List<Map.Entry<Integer,book>> list = new ArrayList<>(m.entrySet());
-        Collections.sort(list, new Comparator<Map.Entry<Integer,book>>() {
+    public Map<Integer,Book>sortByAuthor(Map<Integer,Book> m){
+        List<Map.Entry<Integer,Book>> list = new ArrayList<>(m.entrySet());
+        Collections.sort(list, new Comparator<Map.Entry<Integer,Book>>() {
 
             @Override
-            public int compare(Entry<Integer, book> o1, Entry<Integer, book> o2) {
+            public int compare(Entry<Integer, Book> o1, Entry<Integer, Book> o2) {
                 return o1.getValue().getAuthor().compareTo(o2.getValue().getAuthor());
             }
             
         });
 
-        Map<Integer,book>afterSortedMap = new LinkedHashMap<>();
-        for (Map.Entry<Integer,book> entry : list) {
+        Map<Integer,Book>afterSortedMap = new LinkedHashMap<>();
+        for (Map.Entry<Integer,Book> entry : list) {
             afterSortedMap.put(entry.getKey(), entry.getValue());
         }
         return afterSortedMap;
     }
 
-    public Map<Integer,book>sortByKey(Map<Integer,book> m){
-        Map<Integer,book> afterSortedMap = new TreeMap<>(new Comparator<Integer>() {
+    public Map<Integer,Book>sortByKey(Map<Integer,Book> m){
+        Map<Integer,Book> afterSortedMap = new TreeMap<>(new Comparator<Integer>() {
 
             @Override
             public int compare(Integer o1, Integer o2) {
@@ -51,7 +51,7 @@ public class hashMapSort {
             }
             
         });
-        for (Map.Entry<Integer,book> s : m.entrySet()) {
+        for (Map.Entry<Integer,Book> s : m.entrySet()) {
             afterSortedMap.put(s.getKey(), s.getValue());   
         }
         return afterSortedMap;

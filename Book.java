@@ -1,24 +1,9 @@
-import java.util.HashMap;
-import java.util.Map;
-
-public class hashMapStoringData{
-    private static  Map  <Integer,book> aHashmap = new HashMap<>();
-
-    public Map<Integer, book> getAhashmap() {
-        return aHashmap;
-    }
-
-    public void addDataInToHashmap(Integer num,book value){
-        aHashmap.put(num, value);
-    }
-}
-
-class book {
+class Book {
     private String name;
     private Double price;
     private String author;
 
-    public book(String string, double d,String author) {
+    public Book(String string, double d,String author) {
         this.name = string;
         this.price = d;
         this.author = author;
