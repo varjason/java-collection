@@ -26,14 +26,7 @@ public class hashMapSort {
 
     public Map<Integer,Book>sortByAuthor(Map<Integer,Book> m){
         List<Map.Entry<Integer,Book>> list = new ArrayList<>(m.entrySet());
-        Collections.sort(list, new Comparator<Map.Entry<Integer,Book>>() {
-
-            @Override
-            public int compare(Entry<Integer, Book> o1, Entry<Integer, Book> o2) {
-                return o1.getValue().getAuthor().compareTo(o2.getValue().getAuthor());
-            }
-            
-        });
+        Collections.sort(list, (o1,o2) -> o1.getValue().getAuthor().compareTo(o2.getValue().getAuthor()));
 
         Map<Integer,Book>afterSortedMap = new LinkedHashMap<>();
         for (Map.Entry<Integer,Book> entry : list) {
@@ -43,14 +36,7 @@ public class hashMapSort {
     }
 
     public Map<Integer,Book>sortByKey(Map<Integer,Book> m){
-        Map<Integer,Book> afterSortedMap = new TreeMap<>(new Comparator<Integer>() {
-
-            @Override
-            public int compare(Integer o1, Integer o2) {
-                return o2 - o1;
-            }
-            
-        });
+        Map<Integer,Book> afterSortedMap = new TreeMap<>((o1,o2) -> o2 - o1);
         for (Map.Entry<Integer,Book> s : m.entrySet()) {
             afterSortedMap.put(s.getKey(), s.getValue());   
         }

@@ -23,9 +23,9 @@ public class runHashMap {
         hashmapoperation.changeValueInHashMap(8, b6);
         System.out.println(hashmapoperation.getAhashmap().toString());
 
-        // System.out.println(hashmapsort.sortByPrice(hmo.getAhashmap()));
-        // System.out.println(hashmapsort.sortByAuthor(hmo.getAhashmap()));
-        // System.out.println(hashmapsort.sortByKey(hmo.getAhashmap()));
+        System.out.println(hashmapsort.sortByPrice(hashmapoperation.getAhashmap()));
+        System.out.println(hashmapsort.sortByAuthor(hashmapoperation.getAhashmap()));
+        System.out.println(hashmapsort.sortByKey(hashmapoperation.getAhashmap()));
 
     }
 }
