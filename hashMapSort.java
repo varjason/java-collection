@@ -1,11 +1,9 @@
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
-import java.util.Map.Entry;
 import java.util.stream.Collectors;
 
 public class hashMapSort {
@@ -13,7 +11,6 @@ public class hashMapSort {
     public Map<Integer,Book> sortByPrice(Map<Integer,Book> m){
         List <Map.Entry<Integer,Book>> list = new ArrayList<>(m.entrySet());
         Collections.sort(list,(o1,o2)-> o1.getValue().getPrice().compareTo(o2.getValue().getPrice()));
-            
         LinkedHashMap<Integer, Book> afterSortedMap = list.stream()
         .collect(Collectors.toMap(
                 Map.Entry::getKey, 
