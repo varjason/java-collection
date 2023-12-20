@@ -107,8 +107,8 @@ public class hashMapOperation extends bookDataInHashMap{
             //Map.Entry is a return type of entry set
             Map.Entry<Integer,Book> entry = (Map.Entry<Integer,Book>)it.next();
             if (key == entry.getKey()) {
-                System.out.println("Changed "  + entry.getValue()+ " to " + value);
                 entry.setValue(value);
+                System.out.println("Changed "  + entry.getValue()+ " to " + value);
                 return;
             }
           }
